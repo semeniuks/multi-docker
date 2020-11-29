@@ -12,3 +12,11 @@ after_success:
   - docker build isam/multi-nginx ./nginx
   - docker build isam/multi-server ./server
   - docker build isam/multi-worker ./worker
+
+  #Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #Take those images and push them to docker hub
+  - docker push isam/multi-client
+  - docker push isam/multi-nginx
+  - docker push isam/multi-server
+  - docker push isam/multi-worker
