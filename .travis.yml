@@ -11,10 +11,10 @@ script:
   - docker run -e CI=true isam/react-test npm test
 
 after_success:
-  - docker build isam/multi-client ./cleint
-  - docker build isam/multi-nginx ./nginx
-  - docker build isam/multi-server ./server
-  - docker build isam/multi-worker ./worker
+  - docker build -t isam/multi-client ./cleint
+  - docker build -t isam/multi-nginx ./nginx
+  - docker build -t isam/multi-server ./server
+  - docker build -t isam/multi-worker ./worker
 
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
