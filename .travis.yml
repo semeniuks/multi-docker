@@ -11,7 +11,7 @@ script:
   - docker run -e CI=true isam/react-test npm test
 
 after_success:
-  - docker build -t isam/multi-client ./cleint
+  - docker build -t isam/multi-client ./client
   - docker build -t isam/multi-nginx ./nginx
   - docker build -t isam/multi-server ./server
   - docker build -t isam/multi-worker ./worker
